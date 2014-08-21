@@ -81,5 +81,72 @@ class InvoiceOceanClient extends InvoiceOcean
 
         return $result;
     }
+
+    /**
+     * Get specific invoice information
+     *
+     * @param int $invoice_id
+     *
+     * @return array
+     */
+    public function getInvoice($invoice_id = 0) {
+        // send to api
+        $result = $this->request(__FUNCTION__, $invoice_id);
+
+        return $result;
+    }
+
+    /**
+     * Create an invoice
+     *
+     * @param array $invoice
+     * @return array
+     */
+    public function addInvoice($invoice = array()) {
+        // construct parameters
+        $parameters = array(
+            'api_token'     => $this->getApiToken(),
+            'invoice'       => $invoice
+        );
+
+        // send to api
+        $result = $this->request(__FUNCTION__, $parameters);
+
+        return $result;
+    }
+
+    /**
+     * Update an invoice
+     *
+     * @param int $invoice_id
+     * @param array $invoice
+     * @return array
+     */
+    public function updateInvoice($invoice_id = 0, $invoice = array()) {
+        // construct parameters
+        $parameters = array(
+            'api_token' => $this->getApiToken(),
+            'client'    => array(
+            )
+        );
+
+        // send to api
+        $result = $this->request(__FUNCTION__, $parameters, $invoice_id);
+
+        return $result;
+    }
+
+    /**
+     * Delete an invoice
+     *
+     * @param int $invoice_id
+     * @return array
+     */
+    public function deleteInvoice($invoice_id = 0) {
+        // send to api
+        $result = $this->request(__FUNCTION__, $invoice_id);
+
+        return $result;
+    }
 }
 ?>

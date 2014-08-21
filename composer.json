@@ -12,8 +12,7 @@
     "autoload": {
         "files": [
             "src/InvoiceOcean.php",
-            "src/InvoiceOceanClient.php",
-            "src/InvoiceOceanInvoice.php"
+            "src/InvoiceOceanClient.php"
         ]
     }
 }
