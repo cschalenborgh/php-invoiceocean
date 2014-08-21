@@ -1,7 +1,7 @@
 php-invoiceocean
 ================
 
-PHP client for InvoiceOcean API
+PHP client for InvoiceOcean API (www.invoiceocean.com)
 
 Need more info about the required parameters for every method, then go to:
 
