@@ -1,0 +1,19 @@
+{
+    "name": "kryap/php-invoiceocean",
+    "type": "library",
+    "description": "A PHP client for the InvoiceOcean API",
+    "keywords": ["invoiceocean", "api"],
+    "authors": [
+        {
+            "name": "Chris Schalenborgh",
+            "email": "chris@schalenborgh.be"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/InvoiceOcean.php",
+            "src/InvoiceOceanClient.php",
+            "src/InvoiceOceanInvoice.php"
+        ]
+    }
+}

@@ -106,7 +106,7 @@ abstract class InvoiceOcean
         }
 
         return false;
-}
+    }
 
     /**
      * Returns the HTTP method based on the first verb of the method name
@@ -127,17 +127,18 @@ abstract class InvoiceOcean
         elseif(substr(strtolower($verb), 0, 6) == 'delete') {
             return 'DELETE';
         }
-}
+    }
 
     /**
      * Function to check if valid json
      *
      * @param $string
      * @return bool
-     */private function isJson($string) {
+     */
+    private function isJson($string) {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
-}
+    }
 
     /**
      * Send a RESTful request to the API via cURL
