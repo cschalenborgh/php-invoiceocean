@@ -15,7 +15,7 @@ $io = new InvoiceOceanClient('username', 'api_token_goes_here');
         'email'         => 'chris@schalenborgh.be',
         'person'        => '',
         'post_code'     => '1234',
-        'phone'         => '+32.484680765',
+        'phone'         => '+32.123456789',
         'street'        => 'Street',
         'street_no'     => '123'
     );
