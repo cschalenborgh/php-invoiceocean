@@ -3,6 +3,7 @@
     "type": "library",
     "description": "A PHP client for the InvoiceOcean API",
     "keywords": ["invoiceocean", "api"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Chris Schalenborgh",
