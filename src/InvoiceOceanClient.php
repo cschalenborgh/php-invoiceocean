@@ -148,5 +148,23 @@ class InvoiceOceanClient extends InvoiceOcean
 
         return $result;
     }
+
+    /**
+     * Email an invoice
+     *
+     * @param int $invoice_id
+     * @return array
+     */
+    public function sendByEmail($invoice_id = 0) {
+        // construct parameters
+        $parameters = array(
+            'api_token' => $this->getApiToken(),            
+        );
+
+        // send to api
+        $result = $this->request(__FUNCTION__, $parameters, $invoice_id);
+
+        return $result;
+    }
 }
 ?>
