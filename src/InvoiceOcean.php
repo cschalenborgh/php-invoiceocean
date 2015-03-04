@@ -120,7 +120,7 @@ abstract class InvoiceOcean
         if(substr(strtolower($verb), 0, 3) == 'get') {
             return 'GET';
         }
-        elseif(substr(strtolower($verb), 0, 3) == 'add' || substr(strtolower($verb), 0, 4) == 'send') {
+        elseif(substr(strtolower($verb), 0, 3) == 'add' || substr(strtolower($verb), 0, 5) == 'email') {
             return 'POST';
         }
         elseif(substr(strtolower($verb), 0, 6) == 'update') {
