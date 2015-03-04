@@ -155,7 +155,7 @@ class InvoiceOceanClient extends InvoiceOcean
      * @param int $invoice_id
      * @return array
      */
-    public function sendByEmail($invoice_id = 0) {
+    public function emailInvoice($invoice_id = 0) {
         // construct parameters
         $parameters = array(
             'api_token' => $this->getApiToken(),            
