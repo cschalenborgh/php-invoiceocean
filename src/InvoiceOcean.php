@@ -47,7 +47,7 @@ abstract class InvoiceOcean
         'addInvoice'    =>  'invoices.json',
         'updateInvoice' =>  'invoices/[ID].json',
         'deleteInvoice' =>  'invoices.json',
-        'sendByEmail'   =>  'invoices/[INVOICEID]/send_by_email.json',
+        'sendInvoice'   =>  'invoices/[INVOICEID]/send_by_email.json',
         
         // products
         'getProduct'    =>  'products/[ID].json',
