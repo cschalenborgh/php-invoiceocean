@@ -47,7 +47,7 @@ abstract class InvoiceOcean
         'addInvoice'    =>  'invoices.json',
         'updateInvoice' =>  'invoices/[ID].json',
         'deleteInvoice' =>  'invoices.json',
-        'emailInvoice'   =>  'invoices/[INVOICEID]/send_by_email.json',
+        'sendInvoice'   =>  'invoices/[INVOICEID]/send_by_email.json',
         
         // products
         'getProduct'    =>  'products/[ID].json',
@@ -120,7 +120,7 @@ abstract class InvoiceOcean
         if(substr(strtolower($verb), 0, 3) == 'get') {
             return 'GET';
         }
-        elseif(substr(strtolower($verb), 0, 3) == 'add' || substr(strtolower($verb), 0, 5) == 'email') {
+        elseif(substr(strtolower($verb), 0, 3) == 'add' || substr(strtolower($verb), 0, 4) == 'send') {
             return 'POST';
         }
         elseif(substr(strtolower($verb), 0, 6) == 'update') {
