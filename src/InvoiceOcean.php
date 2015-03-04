@@ -47,7 +47,8 @@ abstract class InvoiceOcean
         'addInvoice'    =>  'invoices.json',
         'updateInvoice' =>  'invoices/[ID].json',
         'deleteInvoice' =>  'invoices.json',
-
+        'sendByEmail'   =>  'invoices/[INVOICEID]/send_by_email.json',
+        
         // products
         'getProduct'    =>  'products/[ID].json',
         'addProduct'    =>  'products.json',
@@ -59,7 +60,7 @@ abstract class InvoiceOcean
      * @param $username - InvoiceOcean username
      * @param $api_token - InvoiceOcean API token
      */
-    protected function __construct($username, $api_token) {
+    protected function __construct($username, $api_token) {        
         $this->_api_url = str_replace('[USERNAME]', $username, $this->_api_url_sample);
         $this->_api_token = $api_token;
     }
@@ -100,7 +101,7 @@ abstract class InvoiceOcean
      *
      * @return bool|string
      */
-    protected function getApiMethod($api_method_name = '') {
+    protected function getApiMethod($api_method_name = '') {        
         if(!Empty($api_method_name) && array_key_exists($api_method_name, $this->_api_methods)) {
             return $this->getApiUrl() . $this->_api_methods[$api_method_name];
         }
@@ -115,10 +116,11 @@ abstract class InvoiceOcean
      * @return string
      */
     private function verbToHttpMethod($verb = '') {
+
         if(substr(strtolower($verb), 0, 3) == 'get') {
             return 'GET';
         }
-        elseif(substr(strtolower($verb), 0, 3) == 'add') {
+        elseif(substr(strtolower($verb), 0, 3) == 'add' || substr(strtolower($verb), 0, 4) == 'send') {
             return 'POST';
         }
         elseif(substr(strtolower($verb), 0, 6) == 'update') {
@@ -156,6 +158,7 @@ abstract class InvoiceOcean
 
         if($id > 0) {
             $location = str_replace('[ID]', $id, $location);
+            $location = str_replace('[INVOICEID]', $id, $location);
         }
 
         // let's only accept json
@@ -171,6 +174,7 @@ abstract class InvoiceOcean
         else {
             $body['api_token'] = $this->getApiToken();
         }
+
         $data = json_encode($body);
 
         // setup curl
@@ -186,7 +190,7 @@ abstract class InvoiceOcean
             case 'GET':
                 break;
 
-            case 'POST':
+            case 'POST':            
                 curl_setopt($handle, CURLOPT_POST, true);
                 curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
                 break;
