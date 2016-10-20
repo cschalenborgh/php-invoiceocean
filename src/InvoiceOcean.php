@@ -47,7 +47,7 @@ abstract class InvoiceOcean
         'addInvoice'    =>  'invoices.json',
         'updateInvoice' =>  'invoices/[ID].json',
         'deleteInvoice' =>  'invoices.json',
-        'sendInvoice'   =>  'invoices/[INVOICEID]/send_by_email.json',
+        'sendInvoice'   =>  'invoices/[ID]/send_by_email.json',
         
         // products
         'getProduct'    =>  'products/[ID].json',
@@ -158,7 +158,6 @@ abstract class InvoiceOcean
 
         if($id > 0) {
             $location = str_replace('[ID]', $id, $location);
-            $location = str_replace('[INVOICEID]', $id, $location);
         }
 
         // let's only accept json
