@@ -46,9 +46,9 @@ abstract class InvoiceOcean
         'getInvoice'    =>  'invoices/[ID].json',
         'addInvoice'    =>  'invoices.json',
         'updateInvoice' =>  'invoices/[ID].json',
-        'deleteInvoice' =>  'invoices.json',
+        'deleteInvoice' =>  'invoices/[ID].json',
         'sendInvoice'   =>  'invoices/[ID]/send_by_email.json',
-        
+      
         // products
         'getProduct'    =>  'products/[ID].json',
         'addProduct'    =>  'products.json',
@@ -201,6 +201,7 @@ abstract class InvoiceOcean
 
             case 'DELETE':
                 curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'DELETE');
+                curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
                 break;
         }
         $response = curl_exec($handle);
@@ -237,4 +238,3 @@ abstract class InvoiceOcean
         }
     }
 }
-?>
